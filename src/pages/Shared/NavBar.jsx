@@ -1,8 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../system/AuthProvider/AuthProvider";
 
 const NavBar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <nav className="navbar bg-base-100">
       <div className="navbar-start">
@@ -65,32 +68,35 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu items-center menu-horizontal px-1">
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/blog">Blog</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-          <li>
-            <label
-              tabIndex={0}
-              className="btn btn-ghost btn-circle avatar border border-primary"
-            >
-              <div className="w-10 rounded-full">
-                <img src="https://static5.depositphotos.com/1003434/514/i/600/depositphotos_5147838-stock-photo-attractive-smiling-cook.jpg" />
-              </div>
-            </label>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link to="/logout">Logout</Link>
+              </li>
+              <img
+                className="w-10 h-10 cursor-pointer rounded-full border"
+                src={user?.photoURL}
+                alt={user?.displayName}
+                title={user?.displayName || "Unknown"}
+              />
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

@@ -2,9 +2,11 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, createUserUsingGoogle, createUserUsingGitHub } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -21,6 +23,29 @@ const Login = () => {
 
     // login a user with email and password
     loginUser(email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((e) => {
+        setError(e.message);
+        console.log(e);
+      });
+  };
+
+  // google login
+  const handleGoogleLogin = () => {
+    createUserUsingGoogle()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((e) => {
+        setError(e.message);
+        console.log(e);
+      });
+  };
+  //github login
+  const handleGitHubLogin = () => {
+    createUserUsingGitHub()
       .then(() => {
         navigate("/");
       })
@@ -54,6 +79,23 @@ const Login = () => {
           required
         />
         <input value="Login" type="submit" className="btn btn-info" />
+        <div>
+          <p className="text-lg text-center">Continue With</p>
+          <div className="flex justify-center gap-4 mt-2">
+            <p
+              onClick={handleGoogleLogin}
+              className="cursor-pointer text-xl flex items-center border p-2 rounded-lg"
+            >
+              <FaGoogle /> Google
+            </p>
+            <p
+              onClick={handleGitHubLogin}
+              className="cursor-pointer text-xl flex items-center border p-2 rounded-lg"
+            >
+              <FaGithub /> GitHub
+            </p>
+          </div>
+        </div>
 
         {/* show  error message */}
         <p className="mt-2 text-center text-red-400">{error}</p>

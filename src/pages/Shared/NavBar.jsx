@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../system/AuthProvider/AuthProvider";
 
 const NavBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
 
   return (
     <nav className="navbar bg-base-100">
@@ -78,7 +78,7 @@ const NavBar = () => {
           {user ? (
             <>
               <li>
-                <Link to="/logout">Logout</Link>
+                <p onClick={logOutUser}>Logout</p>
               </li>
               <img
                 className="w-10 h-10 cursor-pointer rounded-full border"

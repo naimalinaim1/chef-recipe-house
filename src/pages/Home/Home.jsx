@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import Banner from "../Shared/Banner";
 
 const Home = () => {
   return (
-    <div>
-      <h2>home page</h2>
+    <div className="mt-16">
+      <Banner />
     </div>
   );
 };

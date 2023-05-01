@@ -1,13 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../system/AuthProvider/AuthProvider";
 
 const NavBar = () => {
   const { user, logOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // handle logout
+  const handleLogout = () => {
+    logOutUser();
+    navigate("/login");
+  };
 
   return (
-    <nav className="navbar bg-base-100">
+    <nav className="navbar bg-base-100 border-b py-4">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -78,7 +85,7 @@ const NavBar = () => {
           {user ? (
             <>
               <li>
-                <p onClick={logOutUser}>Logout</p>
+                <p onClick={handleLogout}>Logout</p>
               </li>
               <img
                 className="w-10 h-10 cursor-pointer rounded-full border"

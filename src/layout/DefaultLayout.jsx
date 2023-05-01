@@ -2,12 +2,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../pages/Shared/NavBar";
+import Footer from "../pages/Shared/Footer";
 
 const DefaultLayout = () => {
   return (
     <main className="w-[96%] max-w-[1200px] mx-auto">
       <NavBar />
-      <Outlet />
+      <div className="min-h-[96vh]">
+        <Outlet />
+      </div>
+      <Footer />
     </main>
   );
 };

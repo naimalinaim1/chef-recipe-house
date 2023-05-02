@@ -5,6 +5,7 @@ import Login from "../system/Login/Login";
 import Register from "../system/Register/Register";
 import NotFound from "../pages/NotFound/NotFound";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
+import RecipeDetails from "../pages/ChefDetails/RecipeDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
         element: <ChefDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/chef/${params.id}`),
+      },
+      {
+        path: "/recipe/:id",
+        element: <RecipeDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/recipe/${params.id}`),
       },
       {
         path: "/login",

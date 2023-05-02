@@ -6,13 +6,13 @@ const Chefs = () => {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/chefs")
+    fetch("https://chef-recipe-hunter-server-plum.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data));
   }, []);
 
   return (
-    <div className="my-20">
+    <div className="mt-20">
       <h2 className="text-[#121212] text-center leading-[60px] text-5xl font-bold mb-12">
         A chef is a professional <br /> cook and tradesman.
       </h2>

@@ -5,14 +5,14 @@ import TeamMember from "./TeamMember";
 const Team = () => {
   const [teamMember, setTeamMember] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/team")
+    fetch("https://chef-recipe-hunter-server-plum.vercel.app/team")
       .then((res) => res.json())
       .then((data) => setTeamMember(data))
       .catch((e) => console.log(e));
   }, []);
 
   return (
-    <div className="my-20 grid md:grid-cols-[400px_1fr] lg:grid-cols-[450px_1fr] gap-6 lg:gap-60">
+    <div className="my-40 grid md:grid-cols-[400px_1fr] lg:grid-cols-[450px_1fr] gap-6 lg:gap-60">
       <div>
         <h2 className="text-[#121212] leading-[60px] text-5xl font-bold mb-4">
           The Simply Recipes Team

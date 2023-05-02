@@ -1,14 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import LazyLoad from "react-lazy-load";
 
 const NewestRecipes = () => {
   return (
-    <div className="my-20 grid md:grid-cols-2 gap-6 items-center">
-      <img
-        src="https://img.freepik.com/free-vector/business-travelers-holding-briefcase_1262-21211.jpg"
-        alt=""
-        className="w-full max-h-[450px] rounded-xl"
-      />
+    <div className="mt-40 grid md:grid-cols-2 gap-6 items-center">
+      <LazyLoad>
+        <img
+          src="https://img.freepik.com/free-vector/business-travelers-holding-briefcase_1262-21211.jpg"
+          alt=""
+          className="w-full max-h-[450px] rounded-xl"
+        />
+      </LazyLoad>
       <div>
         <h2 className="text-[#121212] leading-[60px] text-5xl font-bold">
           Check out my newest vegan recipes books

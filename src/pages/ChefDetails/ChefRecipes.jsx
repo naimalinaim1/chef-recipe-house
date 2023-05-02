@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import LazyLoad from "react-lazy-load";
 // eslint-disable-next-line react/prop-types
 const ChefRecipes = ({ recipe, userId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -17,11 +18,13 @@ const ChefRecipes = ({ recipe, userId }) => {
     <>
       <div className="card bg-base-100 border">
         <figure className="px-10 pt-10">
-          <img
-            src={image}
-            className="rounded-xl w-full h-[250px]"
-            alt="Shoes"
-          />
+          <LazyLoad>
+            <img
+              src={image}
+              className="rounded-xl w-full h-[250px]"
+              alt="Shoes"
+            />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>

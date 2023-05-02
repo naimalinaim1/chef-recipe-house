@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../system/AuthProvider/AuthProvider";
 import ActiveLink from "./ActiveLink";
+import LazyLoad from "react-lazy-load";
 
 const NavBar = () => {
   const { user, logOutUser } = useContext(AuthContext);
@@ -49,12 +50,14 @@ const NavBar = () => {
                 <li>
                   <p onClick={handleLogout}>Logout</p>
                 </li>
-                <img
-                  className="w-10 h-10 cursor-pointer rounded-full border"
-                  src={user?.photoURL}
-                  alt={user?.displayName}
-                  title={user?.displayName || "Unknown"}
-                />
+                <LazyLoad>
+                  <img
+                    className="w-10 h-10 cursor-pointer rounded-full border"
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                    title={user?.displayName || "Unknown"}
+                  />
+                </LazyLoad>
               </>
             ) : (
               <>
@@ -88,12 +91,14 @@ const NavBar = () => {
               <li>
                 <p onClick={handleLogout}>Logout</p>
               </li>
-              <img
-                className="w-10 h-10 cursor-pointer rounded-full border"
-                src={user?.photoURL}
-                alt={user?.displayName}
-                title={user?.displayName || "Unknown"}
-              />
+              <LazyLoad>
+                <img
+                  className="w-10 h-10 cursor-pointer rounded-full border"
+                  src={user?.photoURL}
+                  alt={user?.displayName}
+                  title={user?.displayName || "Unknown"}
+                />
+              </LazyLoad>
             </>
           ) : (
             <>

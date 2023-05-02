@@ -6,6 +6,8 @@ import Register from "../system/Register/Register";
 import NotFound from "../pages/NotFound/NotFound";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import RecipeDetails from "../pages/ChefDetails/RecipeDetails";
+import Blog from "../pages/Blog/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +21,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef/:id",
-        element: <ChefDetails />,
+        element: (
+          <PrivateRoute>
+            <ChefDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/chef/${params.id}`),
+          fetch(
+            `https://chef-recipe-hunter-server-plum.vercel.app/chef/${params.id}`
+          ),
       },
       {
         path: "/recipe/:id",
         element: <RecipeDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/recipe/${params.id}`),
+          fetch(
+            `https://chef-recipe-hunter-server-plum.vercel.app/recipe/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -36,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
     ],
   },

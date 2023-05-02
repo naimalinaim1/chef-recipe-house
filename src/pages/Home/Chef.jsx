@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
@@ -10,11 +11,13 @@ const Chef = ({ chef }) => {
     <>
       <div className="card bg-base-100 border">
         <figure className="px-10 pt-10">
-          <img
-            src={picture}
-            className="rounded-xl w-full h-[250px]"
-            alt="Shoes"
-          />
+          <LazyLoad>
+            <img
+              src={picture}
+              className="rounded-xl w-full h-[250px]"
+              alt="Shoes"
+            />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>

@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import LazyLoad from "react-lazy-load";
 import { useLoaderData, useNavigation } from "react-router-dom";
 
 const RecipeDetails = () => {
@@ -21,7 +22,13 @@ const RecipeDetails = () => {
             Go Back
           </button>
           <div className="mt-20 mb-32">
-            <img src={image} alt="" className="h-[300px] mx-auto rounded-xl" />
+            <LazyLoad>
+              <img
+                src={image}
+                alt=""
+                className="h-[300px] mx-auto rounded-xl"
+              />
+            </LazyLoad>
             <div>
               <h2 className="text-[#121212] leading-[60px] text-5xl font-bold  mt-4">
                 {name}

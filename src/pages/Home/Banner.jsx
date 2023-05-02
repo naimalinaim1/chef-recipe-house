@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import LazyLoad from "react-lazy-load";
 
 const Banner = () => {
   return (
@@ -14,11 +15,13 @@ const Banner = () => {
         </p>
         <button className="btn btn-error">Get Started</button>
       </div>
-      <img
-        src="https://img.freepik.com/free-photo/rice-with-vegetables-shrimp-sauce-cooked-saj_140725-6790.jpg"
-        alt=""
-        className="w-full h-[450px] rounded-xl"
-      />
+      <LazyLoad>
+        <img
+          src="https://img.freepik.com/free-photo/rice-with-vegetables-shrimp-sauce-cooked-saj_140725-6790.jpg"
+          alt=""
+          className="w-full h-[450px] rounded-xl"
+        />
+      </LazyLoad>
     </div>
   );
 };

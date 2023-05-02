@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../system/AuthProvider/AuthProvider";
+import ActiveLink from "./ActiveLink";
 
 const NavBar = () => {
   const { user, logOutUser } = useContext(AuthContext);
@@ -77,10 +78,10 @@ const NavBar = () => {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu items-center menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <ActiveLink to="/">Home</ActiveLink>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <ActiveLink to="/blog">Blog</ActiveLink>
           </li>
           {user ? (
             <>
@@ -97,10 +98,10 @@ const NavBar = () => {
           ) : (
             <>
               <li>
-                <Link to="/login">Login</Link>
+                <ActiveLink to="/login">Login</ActiveLink>
               </li>
               <li>
-                <Link to="/register">Register</Link>
+                <ActiveLink to="/register">Register</ActiveLink>
               </li>
             </>
           )}

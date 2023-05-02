@@ -23,7 +23,7 @@ const RecipeDetails = () => {
           <div className="mt-20 mb-32">
             <img src={image} alt="" className="h-[300px] mx-auto rounded-xl" />
             <div>
-              <h2 className="text-[#121212] leading-[60px] text-5xl font-bold pr-32">
+              <h2 className="text-[#121212] leading-[60px] text-5xl font-bold  mt-4">
                 {name}
               </h2>
               <p className="text-gray-500 text-lg">{description}</p>

@@ -12,7 +12,7 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="my-20 grid grid-cols-[450px_1fr] gap-60">
+    <div className="my-20 grid md:grid-cols-[400px_1fr] lg:grid-cols-[450px_1fr] gap-6 lg:gap-60">
       <div>
         <h2 className="text-[#121212] leading-[60px] text-5xl font-bold mb-4">
           The Simply Recipes Team

@@ -7,7 +7,7 @@ const NewestRecipes = () => {
       <img
         src="https://img.freepik.com/free-vector/business-travelers-holding-briefcase_1262-21211.jpg"
         alt=""
-        className="w-full h-[450px] rounded-xl"
+        className="w-full max-h-[450px] rounded-xl"
       />
       <div>
         <h2 className="text-[#121212] leading-[60px] text-5xl font-bold">

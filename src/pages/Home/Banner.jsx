@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="grid md:grid-cols-2 gap-4 items-center">
       <div>
-        <h2 className="text-[#121212] leading-[60px] text-5xl font-bold pr-32">
+        <h2 className="text-[#121212] leading-[60px] text-5xl font-bold md:pr-10 lg:pr-32">
           Order Something Healthy And Delicious
         </h2>
         <p className="text-gray-500 text-lg my-5">

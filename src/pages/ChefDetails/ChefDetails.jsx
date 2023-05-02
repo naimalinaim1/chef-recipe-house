@@ -17,7 +17,7 @@ const ChefDetails = () => {
         <>
           <div className="hero min-h-[50vh]">
             <div className="hero-content">
-              <div className="flex gap-6">
+              <div className="md:flex gap-6">
                 <img
                   className="w-full h-[350px] rounded-lg"
                   src={picture}
@@ -40,7 +40,7 @@ const ChefDetails = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-4 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             {recipes?.map((recipe) => (
               <ChefRecipes key={recipe.id} userId={id} recipe={recipe} />
             ))}

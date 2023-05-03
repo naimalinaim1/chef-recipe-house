@@ -8,6 +8,7 @@ import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import RecipeDetails from "../pages/ChefDetails/RecipeDetails";
 import Blog from "../pages/Blog/Blog";
 import PrivateRoute from "./PrivateRoute";
+import ReactPdf from "../pages/Blog/ReactPdf";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/react-to-pdf",
+        element: <ReactPdf />,
       },
     ],
   },
